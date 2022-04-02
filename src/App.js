@@ -30,14 +30,14 @@ const App = () => {
   };
 
   const createMatrix = () => {
-    (n!=0 && m!=0)?show=false:show=true;
-    console.log(n,m)
+    n != 0 && m != 0 ? (show = false) : (show = true);
+    console.log(n, m);
   };
 
-  let show = true;
+  let show = false;
   console.log("show: " + show);
   return (
-    <>
+    <div className="">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <h1 className="navbar-brand" href="#">
@@ -45,41 +45,42 @@ const App = () => {
           </h1>
         </div>
       </nav>
-      {show==false?<></>:
+      {show == false ? (
+        <></>
+      ) : (
         <div className="m-4">
-        <form onSubmit={submit} className="">
-          <input
-            autoComplete="off"
-            className="d-block form-control my-2"
-            placeholder="Número de filas (n)"
-            name="n"
-            type="text"
-            value={n}
-            onChange={handleInputChange}
-          />
+          <form onSubmit={submit} className="">
+            <input
+              autoComplete="off"
+              className="d-block form-control my-2"
+              placeholder="Número de filas (n)"
+              name="n"
+              type="text"
+              value={n}
+              onChange={handleInputChange}
+            />
 
-          <input
-            autoComplete="off"
-            className="d-block form-control my-2"
-            placeholder="Número de columnas (m)"
-            name="m"
-            type="text"
-            value={m}
-            onChange={handleInputChange}
-          />
+            <input
+              autoComplete="off"
+              className="d-block form-control my-2"
+              placeholder="Número de columnas (m)"
+              name="m"
+              type="text"
+              value={m}
+              onChange={handleInputChange}
+            />
 
-          <button
-            onClick={createMatrix}
-            className="my-2 d-block btn-sm btn-primary btn-block w-100"
-          >
-           Crear Matriz
-          </button>
-        </form>
-      </div>
+            <button
+              onClick={createMatrix}
+              className="my-2 d-block btn-sm btn-primary btn-block w-100"
+            >
+              Crear Matriz
+            </button>
+          </form>
+        </div>
+      )}
 
-      }
-      
-      <div className=" d-flex justify-content-center">
+      <div className="justify-content-center d-flex justify-content-center">
         <div className="bg-light m-4 w-auto rounded border border-primary">
           {matrix.map((row) => (
             <div
@@ -109,7 +110,7 @@ const App = () => {
           word={myWord}
         />
       </div>
-    </>
+    </div>
   );
 };
 
